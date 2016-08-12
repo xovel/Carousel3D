@@ -5,9 +5,10 @@ Just a 3D carousel plugin. No dependency.
 
 ## What is it?
 
-As mentioned above, it is just a 3d carousel plugin. The author has been accustomed to writting plugin in [vanilla-js](http://vanilla-js.com/), so it was writtened by vanilla-js. In other words, this plugin is independent, no jQuery, no any other libruary or framework.
+As mentioned above, it is just a 3d carousel plugin. The author has been accustomed to writting plugin in [vanilla-js](http://vanilla-js.com/), so it was writtened by vanilla-js. In other words, this plugin is independent, no jQuery, no any other 
+library or framework.
 
-If you want some integrated functionality, just leave a [issue](https://github.com/xovel/Carousel3D/issues). ~~Although it will usually be ignored.~~
+If you want some integrated functionality, just leave an [issue](https://github.com/xovel/Carousel3D/issues). ~~Although it will usually be ignored.~~
 
 ## Demo
 
@@ -79,8 +80,8 @@ Carousel3D({
 - `animate`, **number**. The time from each effect duration. The unit is *millisecond*.
 - `fps`, **integer**. How many times the animate effect excuted. Defaulted to `60`.
 - `auto`, **number**, default value is `8000`. The flag of autoplay. Set a false-value like `0` or `false` to disable autoplay.
-- `click`, **boolean**. Whether the item clickable to switch.
-- `keydown`, **boolean**. whether to respond to keyboard events: `keyLeft` or `keyRight`.
+- `click`, **boolean**. Wether the item is clickable to switch.
+- `keydown`, **boolean**. Wether to respond to keyboard events: `keyLeft` or `keyRight`.
 - `wheel`, **boolean**. Wether to respond to wheel events.
 - `resize`, **boolean**. Wether to respond to window resize events.
 - `swipe`, **boolean**. Wether to respond to swipe events. **NOT implemented**
@@ -116,7 +117,7 @@ Stop autoplay.
 
 ### auto
 
-Start autoplay with a interval duration.
+Start autoplay with an interval duration.
 
 ## Util
 
@@ -168,6 +169,11 @@ EventListener
 - `querySelectorAll`
 
 Test the feature in [Can I Use](http://caniuse.com/), and of course, it is up to you.
+
+## Thanks to
+
+- [depthdev/carousel3d](https://github.com/depthdev/carousel3d). **Inspiration of**
+- `qslinz.js`, extend/each/className-polyfill
 
 ## Change Log
 
