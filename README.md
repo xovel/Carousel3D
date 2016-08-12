@@ -159,7 +159,7 @@ EventListener
 - [ ] swipe events
 - [ ] Responsive
 
-## Browse Support
+## Browser Support
 
 - `-webkit-filter`
 - `-webkit-box-reflect-` ~~if it is been enabled~~
