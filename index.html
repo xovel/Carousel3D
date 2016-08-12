@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Carousel3D - DEMO</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="author" content="xovel">
+
+  <meta name="format-detection" content="telephone=no" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />    
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+</head>
+<body>
+
+<style type="text/css">
+body{ overflow-x: hidden; margin:0; padding:0; }
+.container{ max-width: 600px; padding-top: 200px; max-height:600px;margin:50px auto 0; text-align: center; }
+.container img{ vertical-align: top; width: 100%;} 
+.carousel{ height: 600px; }
+.carousel-op{ height: 20px;background-color: #e7e7e7; overflow:hidden; width: 100%; position: relative;}
+.carousel-prev,.carousel-next{ position: absolute; height: 16px; width: 16px; top: 2px; background: magenta; border-radius:16px; font-size: 12px; line-height: 16px; text-align: center; color: white;}
+.carousel-prev{ left:2px; }
+.carousel-next{ right: 2px; }
+.carousel-nav{ position: absolute; top: 2px; height: 16px; line-height: 16px; left:50%; margin-left: -80px; }
+.carousel-nav ul{ margin:0; padding:0; list-style:none; }
+.carousel-nav li{ display: inline-block; height: 16px; width: 16px; line-height: 16px; background: cyan; color: white; border-radius: 16px; }
+.carousel-nav li.on{ background: red; }
+</style>
+
+<div class="container">
+  <div class="carousel">
+    <div class="carousel-item"><img src="vendors/1.png"></div>
+    <div class="carousel-item"><img src="vendors/2.png"></div>
+    <div class="carousel-item"><img src="vendors/3.png"></div>
+    <div class="carousel-item"><img src="vendors/4.png"></div>
+    <div class="carousel-item"><img src="vendors/5.png"></div>
+    <div class="carousel-item"><img src="vendors/6.png"></div>
+    <div class="carousel-item"><img src="vendors/7.png"></div>
+  </div>
+  <div class="carousel-op">
+    <div class="carousel-nav">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="on">3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+      </ul>
+    </div>
+    <div class="carousel-prev">&lt;</div>
+    <div class="carousel-next">&gt;</div>
+  </div>
+</div>
+
+<script src="Carousel3D.js"></script>
+
+<script>
+var u = Carousel3D.util;
+var nav = u.$('.carousel-nav li', 1);
+
+var c3 = Carousel3D({
+  carousel: '.carousel',
+  items: '.carousel-item',
+  reflect: false,
+  wheel: true,
+  keydown: true,
+  percent: .6,
+  prev: '.carousel-prev',
+  next: '.carousel-next',
+  callback: function(i){
+    u.each(nav, function(index, item){
+      u.removeClass(item, 'on');
+    });
+    u.addClass(nav[i], 'on');
+  }
+});
+
+u.each(nav, function(index,item){
+  u.on(item, 'click', function(){
+    c3.to(index);
+  });
+});
+
+c3.to(5);
+
+</script>
+
+</body>
+</html>
