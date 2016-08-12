@@ -2,9 +2,10 @@
  * Carousel3D
  * Just a 3D carousel plugin.
  * author: xovel
- * version: 0.0.1
- * repo: https://github.com/xovel/3DCarousel
+ * version: 0.0.2
+ * repo: https://github.com/xovel/Carousel3D
  * license: MIT
+ * Last update: Fri Aug 12 2016 14:13:09 GMT+0800
  */
 
 +function(window, document, undefined){
@@ -135,8 +136,9 @@ var Carousel3D = function(options){
     reflect: false,
     reflectValue: 'below -5px -webkit-gradient(linear, left top,left bottom, from(rgba(0,0,0,0.25)), to(rgba(255,255,255,0.05)))',
     percent: .5,
-    pest: .3,
+    ratio: .3,
     depth: 2,
+    currentClass: 'on',
     float: 'left', // abandoned
     opacity: .1,
     grayscale: 1,
@@ -152,9 +154,7 @@ var Carousel3D = function(options){
     swipe: false,
     next: null,
     prev: null,
-    callback: null,
-
-    '': ''
+    callback: null
   }, options || {});
 
   var carousel = _$( options.carousel );
@@ -182,7 +182,7 @@ var Carousel3D = function(options){
     clearTimeout(_tmr);
 
     var carouselWidth = carousel.offsetWidth;
-    var carouselHeight = carouselWidth * options.pest;
+    var carouselHeight = carouselWidth * options.ratio;
 
     _css(carousel,{'height':carouselHeight + 'px', 'position': 'relative'});
 
@@ -216,6 +216,7 @@ var Carousel3D = function(options){
 
     _set(0);
     _auto();
+    _callback();
   }
 
   var _set = function(deg){
@@ -249,10 +250,10 @@ var Carousel3D = function(options){
       });
 
       if(z >= params.len / 2){
-        _addClass(item, 'on');
+        _addClass(item, options.currentClass);
         params.index = index;
       }else{
-        _removeClass(item, 'on');
+        _removeClass(item, options.currentClass);
       }
     });
   }
@@ -389,6 +390,7 @@ var Carousel3D = function(options){
     prev: _prev,
     next: _next,
     to: _to,
+    reset: _init,
     stop: function(){ clearInterval(_itv); options.auto = 0; },
     auto: function(v){ options.auto = v; _auto(); }
   }
