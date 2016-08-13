@@ -3,12 +3,18 @@ Just a 3D carousel plugin. No dependency.
 
 ------
 
+## A THORNY problem
+
+This cannot work properly in iPhone, eg `Safari`/`WeChat Browser`. The heart of the problem is the `timing`.
+
+> Is there any tip or help?
+
+------
+
 ## What is it?
 
 As mentioned above, it is just a 3d carousel plugin. The author has been accustomed to writting plugin in [vanilla-js](http://vanilla-js.com/), so it was writtened by vanilla-js. In other words, this plugin is independent, no jQuery, no any other 
 library or framework.
-
-If you want some integrated functionality, just leave an [issue](https://github.com/xovel/Carousel3D/issues). ~~Although it will usually be ignored.~~
 
 ## Demo
 
