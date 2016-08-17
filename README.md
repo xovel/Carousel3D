@@ -162,7 +162,7 @@ EventListener
 ## TODO
 
 - [x] AMD
-- [ ] swipe events
+- [x] swipe events
 - [ ] Responsive
 
 ## Browser Support
@@ -182,6 +182,13 @@ Test the feature in [Can I Use](http://caniuse.com/), and of course, it is up to
 - `qslinz.js`, extend/each/className-polyfill
 
 ## Change Log
+
+### 0.0.3
+
+> 2016-08-17
+
+- add options `swipe`
+- add options `drag`/`drop` to support drag&drop event. **experimental**
 
 ### 0.0.2
 

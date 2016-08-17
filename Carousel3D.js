@@ -2,10 +2,10 @@
  * Carousel3D
  * Just a 3D carousel plugin.
  * author: xovel
- * version: 0.0.2
+ * version: 0.0.3
  * repo: https://github.com/xovel/Carousel3D
  * license: MIT
- * Last update: Fri Aug 12 2016 14:13:09 GMT+0800
+ * Last update: Wed Aug 17 2016 09:29:39 GMT+0800
  */
 
 +function(window, document, undefined){
@@ -351,6 +351,64 @@ var Carousel3D = function(options){
       if( e.keyCode === 39 ){
         _next();
       }
+    });
+  }
+
+  var pos = {};
+
+  // swipe
+  if( options.swipe ){
+    _on(carousel.parentNode, 'touchstart', function(e){
+      pos.startX = e.touches[0].clientX;
+    });
+
+    _on(carousel.parentNode, 'touchmove', function(e){
+      pos.currentX = e.touches[0].clientX;
+
+      if( pos.startX && pos.startX > pos.currentX ){
+        _next();
+        pos = {};
+      }
+
+      if( pos.startX && pos.startX < pos.currentX ){
+        _prev();
+        pos = {};
+      }
+    });
+
+    _on(carousel.parentNode, 'touchend', function(e){
+      pos = {};
+    });
+  }
+
+  // drag&drop
+  if( options.drag || options.drop ){
+    _on(carousel.parentNode, 'mousedown', function(e){
+      pos.mouseStartX = e.clientX;
+    });
+
+    _on(carousel.parentNode, 'mousemove', function(e){
+      pos.mouseCurrentX = e.clientX;
+
+      if( pos.mouseStartX && pos.mouseStartX > pos.mouseCurrentX ){
+        _next();
+        pos = {};
+      }
+
+      if( pos.mouseStartX && pos.mouseStartX < pos.mouseCurrentX ){
+        _prev();
+        pos = {};
+      }
+
+      if( e.preventDefault ){
+        e.preventDefault();
+      }else{
+        e.returnValue = false;
+      }
+    });
+
+    _on(carousel.parentNode, 'mouseup', function(e){
+      pos = {};
     });
   }
 
